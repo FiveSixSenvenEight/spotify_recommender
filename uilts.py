@@ -5,6 +5,5 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Replace these paths with your own absolute paths
-repo_root = '../'
-data_path = repo_root + 'data/'
+data_path = '../data/'
 
