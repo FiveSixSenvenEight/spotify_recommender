@@ -5,6 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Replace these paths with your own absolute paths
-data_path = '<your_own>' #/Users/zihaoxu/data_lan/spotify_recommender/data/
-export_path = '<your_own>' #/Users/zihaoxu/data_lan/spotify_recommender/export/
+repo_root = '../'
+data_path = repo_root + 'data/'
 
