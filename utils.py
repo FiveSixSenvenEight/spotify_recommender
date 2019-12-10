@@ -22,15 +22,12 @@ def avg_overlap(true_dict, pred):
     avg_overlap = np.mean([overlap_score(a, b) for a,b in zip(true_dict.values(), pred)])    
     return avg_overlap
 
-def r_precision(predictions, labels, test_size = 10):
-    ''' Calculates the r-precision score
-        Inputs:
-            Prediction: list of predictions 
-            labels: list of actual labels
-            test_size: size of each of the two sets
-    '''
-    assert len(predictions) == len(labels) == test_size
-    score = len(np.intersect1d(labels, predictions)) / len(labels)
+def r_precision(prediction, val_set, test_size = 10):
+    # prediction should be a list of predictions
+    # val_set should be pandas Series of ground truths
+    assert len(prediction) == len(val_set) == test_size
+    val_set = pd.Series(val_set)
+    score = np.sum(val_set.isin(prediction))/val_set.shape[0]
     return score
 
 def dcg(predictions, labels, test_size = 10):
